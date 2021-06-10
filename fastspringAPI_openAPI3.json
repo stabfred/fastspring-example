@@ -3,7 +3,9 @@
   "info": {
     "title": "FastSpring API",
     "contact": {},
-    "version": "1.0"
+    "version": "1.0",
+    "x-logo": {
+      "url": "https://fastspring.com/images/2020/logos/fastspring-logo-color-icon-dark-text-high-resolution.png",
   },
   "servers": [
     {
