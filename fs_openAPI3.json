@@ -1,0 +1,3048 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "FastSpring API",
+    "contact": {},
+    "version": "1.0",
+    "x-logo": {
+      "url": "https://fastspring.com/images/2020/logos/fastspring-logo-color-icon-dark-text-high-resolution.png"}
+  },
+  "servers": [
+    {
+      "url": "https://api.fastspring.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/accounts/{account_id}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get one account",
+        "operationId": "Getoneaccount",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Update existing account",
+        "operationId": "Updateexistingaccount",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateexistingaccountRequest"
+              },
+              "example": {
+                "contact": {
+                  "first": "John",
+                  "last": "Doe",
+                  "email": "j.doe@fastspring.com",
+                  "company": "FastSpring",
+                  "phone": "402-402-4024"
+                },
+                "language": "en",
+                "country": "US",
+                "lookup": {
+                  "custom": "customKey"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/accounts": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get all accounts",
+        "operationId": "Getallaccounts",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Create an account",
+        "operationId": "Createanaccount",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateanaccountRequest"
+              },
+              "example": {
+                "contact": {
+                  "first": "John",
+                  "last": "Doe",
+                  "email": "j.doe@fastspring.com",
+                  "company": "FastSpring",
+                  "phone": "402-402-4024"
+                },
+                "language": "en",
+                "country": "US",
+                "lookup": {
+                  "custom": "customKey"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/accounts/{account_id}/authenticate": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get authenticated account management URL",
+        "operationId": "GetauthenticatedaccountmanagementURL",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/coupons": {
+      "post": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Create a new coupon",
+        "operationId": "Createanewcoupon",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateanewcouponRequest"
+              },
+              "example": {
+                "coupon": "my-coupon-id",
+                "discount": {
+                  "type": "flat",
+                  "amount": {
+                    "USD": 8,
+                    "EUR": 1
+                  }
+                },
+                "combine": true,
+                "reason": {
+                  "en": "Your Reason",
+                  "de": "Your Reason in German"
+                },
+                "limit": 10,
+                "available": {
+                  "start": "2019-12-01",
+                  "end": "2019-12-31"
+                },
+                "codes": [
+                  "code1",
+                  "code2",
+                  "code3"
+                ],
+                "products": [
+                  "base"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/coupons/{coupon_id}": {
+      "post": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Add coupon codes to a coupon",
+        "operationId": "Addcouponcodestoacoupon",
+        "parameters": [
+          {
+            "name": "coupon_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddcouponcodestoacouponRequest"
+              },
+              "example": {
+                "codes": [
+                  "code4",
+                  "code5",
+                  "code6"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Retrieve coupon details",
+        "operationId": "Retrievecoupondetails",
+        "parameters": [
+          {
+            "name": "coupon_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/coupons/{coupon_id}/codes": {
+      "get": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Get coupon codes assigned to a coupon",
+        "operationId": "Getcouponcodesassignedtoacoupon",
+        "parameters": [
+          {
+            "name": "coupon_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Delete all coupon codes from a coupon",
+        "operationId": "Deleteallcouponcodesfromacoupon",
+        "parameters": [
+          {
+            "name": "coupon_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/processed": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get processed events",
+        "operationId": "Getprocessedevents",
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/unprocessed": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get unprocessed events",
+        "operationId": "Getunprocessedevents",
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": 1547484177000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/{event_id}": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Update a single event",
+        "operationId": "Updateasingleevent",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateasingleeventRequest"
+              },
+              "example": {
+                "processed": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/orders/{order_id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get orders by ID",
+        "operationId": "GetordersbyID",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get all orders",
+        "operationId": "Getallorders",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create new order and complete the charge",
+        "operationId": "Createneworderandcompletethecharge",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateneworderandcompletethechargeRequest"
+              },
+              "example": {
+                "account": "{account_id}",
+                "coupon": "",
+                "tags": {
+                  "tag1": "value1"
+                },
+                "currency": "USD",
+                "items": [
+                  {
+                    "product": "{product_id}",
+                    "quantity": 1,
+                    "pricing": {
+                      "trial": 0,
+                      "renew": "auto",
+                      "interval": "month",
+                      "intervalLength": 1,
+                      "quantityBehavior": "allow",
+                      "quantityDefault": 1,
+                      "price": {
+                        "USD": 14.95,
+                        "EUR": 10.99
+                      }
+                    },
+                    "attributes": {
+                      "ATTRIBUTE1": "value1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/{product_path}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get products by id",
+        "operationId": "Getproductsbyid",
+        "parameters": [
+          {
+            "name": "product_path",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get list of all product ids",
+        "operationId": "Getlistofallproductids",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create one or more new products",
+        "operationId": "Createoneormorenewproducts",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateoneormorenewproductsRequest"
+              },
+              "example": {
+                "products": [
+                  {
+                    "product": "{product_path}",
+                    "display": {
+                      "en": "String"
+                    },
+                    "description": {
+                      "summary": {
+                        "en": "String"
+                      },
+                      "action": {
+                        "en": "String"
+                      },
+                      "full": {
+                        "en": "String"
+                      }
+                    },
+                    "fulfillment": {
+                      "instructions": {
+                        "en": "String",
+                        "es": "String"
+                      }
+                    },
+                    "image": "https://d8y8nchqlnmka.cloudfront.net/NVaGM-nhSpQ/-FooqIP-R84/photio-imac-hero.png",
+                    "format": "digital",
+                    "sku": "string",
+                    "attributes": {
+                      "key1": "value1",
+                      "key2": "value2"
+                    },
+                    "pricing": {
+                      "trial": 2,
+                      "interval": "month",
+                      "intervalLength": 1,
+                      "quantityBehavior": "allow",
+                      "quantityDefault": 1,
+                      "price": {
+                        "USD": 14.95,
+                        "EUR": 10.99
+                      },
+                      "quantityDiscounts": {
+                        "10": 25.0
+                      },
+                      "discountReason": {
+                        "en": "The Reason"
+                      },
+                      "discountDuration": 1
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/returns/{id}": {
+      "get": {
+        "tags": [
+          "Returns"
+        ],
+        "summary": "Get one or multiple returns",
+        "operationId": "Getoneormultiplereturns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Sessions"
+        ],
+        "summary": "Create a session without overriding any default values",
+        "operationId": "Createasessionwithoutoverridinganydefaultvalues",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateasessionwithoutoverridinganydefaultvaluesRequest"
+              },
+              "example": {
+                "account": "{account_id}",
+                "items": [
+                  {
+                    "product": "{product_path}",
+                    "quantity": 1
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get all subscription instances",
+        "operationId": "Getallsubscriptioninstances",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Change the product for an active subscription",
+        "operationId": "Changetheproductforanactivesubscription",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangetheproductforanactivesubscriptionRequest"
+              },
+              "example": {
+                "subscriptions": [
+                  {
+                    "subscription": "{subscription_id}",
+                    "product": "{subscription_product_path}",
+                    "quantity": 1
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscriptions/{subscription_id}": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get one or more subscription instances",
+        "operationId": "Getoneormoresubscriptioninstances",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Cancel subscription instances",
+        "operationId": "Cancelsubscriptioninstances",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Uncancel a subscription prior to deactivation",
+        "operationId": "Uncancelasubscriptionpriortodeactivation",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UncancelasubscriptionpriortodeactivationRequest"
+              },
+              "example": {
+                "subscriptions": [
+                  {
+                    "subscription": "{subscription_id}",
+                    "deactivation": null
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscriptions/{subscription_id}/entries": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get subscription instance entries",
+        "operationId": "Getsubscriptioninstanceentries",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscriptions/charge": {
+      "post": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Rebill managed subscription instance",
+        "operationId": "Rebillmanagedsubscriptioninstance",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RebillmanagedsubscriptioninstanceRequest"
+              },
+              "example": {
+                "subscriptions": [
+                  {
+                    "subscription": "{subscription_id}"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateanaccountRequest": {
+        "title": "CreateanaccountRequest",
+        "required": [
+          "contact",
+          "language",
+          "country",
+          "lookup"
+        ],
+        "type": "object",
+        "properties": {
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "language": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "lookup": {
+            "$ref": "#/components/schemas/Lookup"
+          }
+        },
+        "example": {
+          "contact": {
+            "first": "John",
+            "last": "Doe",
+            "email": "j.doe@fastspring.com",
+            "company": "FastSpring",
+            "phone": "402-402-4024"
+          },
+          "language": "en",
+          "country": "US",
+          "lookup": {
+            "custom": "customKey"
+          }
+        }
+      },
+      "Contact": {
+        "title": "Contact",
+        "required": [
+          "first",
+          "last",
+          "email",
+          "company",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string"
+          },
+          "last": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "first": "John",
+          "last": "Doe",
+          "email": "j.doe@fastspring.com",
+          "company": "FastSpring",
+          "phone": "402-402-4024"
+        }
+      },
+      "Lookup": {
+        "title": "Lookup",
+        "required": [
+          "custom"
+        ],
+        "type": "object",
+        "properties": {
+          "custom": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "custom": "customKey"
+        }
+      },
+      "UpdateexistingaccountRequest": {
+        "title": "UpdateexistingaccountRequest",
+        "required": [
+          "contact",
+          "language",
+          "country",
+          "lookup"
+        ],
+        "type": "object",
+        "properties": {
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "language": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "lookup": {
+            "$ref": "#/components/schemas/Lookup"
+          }
+        },
+        "example": {
+          "contact": {
+            "first": "John",
+            "last": "Doe",
+            "email": "j.doe@fastspring.com",
+            "company": "FastSpring",
+            "phone": "402-402-4024"
+          },
+          "language": "en",
+          "country": "US",
+          "lookup": {
+            "custom": "customKey"
+          }
+        }
+      },
+      "CreateanewcouponRequest": {
+        "title": "CreateanewcouponRequest",
+        "required": [
+          "coupon",
+          "discount",
+          "combine",
+          "reason",
+          "limit",
+          "available",
+          "codes",
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "coupon": {
+            "type": "string"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "combine": {
+            "type": "boolean"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/Reason"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "available": {
+            "$ref": "#/components/schemas/Available"
+          },
+          "codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "coupon": "my-coupon-id",
+          "discount": {
+            "type": "flat",
+            "amount": {
+              "USD": 8,
+              "EUR": 1
+            }
+          },
+          "combine": true,
+          "reason": {
+            "en": "Your Reason",
+            "de": "Your Reason in German"
+          },
+          "limit": 10,
+          "available": {
+            "start": "2019-12-01",
+            "end": "2019-12-31"
+          },
+          "codes": [
+            "code1",
+            "code2",
+            "code3"
+          ],
+          "products": [
+            "base"
+          ]
+        }
+      },
+      "Discount": {
+        "title": "Discount",
+        "required": [
+          "type",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Amount"
+          }
+        },
+        "example": {
+          "type": "flat",
+          "amount": {
+            "USD": 8,
+            "EUR": 1
+          }
+        }
+      },
+      "Amount": {
+        "title": "Amount",
+        "required": [
+          "USD",
+          "EUR"
+        ],
+        "type": "object",
+        "properties": {
+          "USD": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EUR": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "USD": 8,
+          "EUR": 1
+        }
+      },
+      "Reason": {
+        "title": "Reason",
+        "required": [
+          "en",
+          "de"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "de": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "Your Reason",
+          "de": "Your Reason in German"
+        }
+      },
+      "Available": {
+        "title": "Available",
+        "required": [
+          "start",
+          "end"
+        ],
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "start": "2019-12-01",
+          "end": "2019-12-31"
+        }
+      },
+      "UpdateexistingcouponRequest": {
+        "title": "UpdateexistingcouponRequest",
+        "required": [
+          "coupon",
+          "discount",
+          "combine",
+          "reason",
+          "limit",
+          "available",
+          "codes",
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "coupon": {
+            "type": "string"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount"
+          },
+          "combine": {
+            "type": "boolean"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/Reason"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "available": {
+            "$ref": "#/components/schemas/Available"
+          },
+          "codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "coupon": "my-coupon-id",
+          "discount": {
+            "type": "flat",
+            "amount": {
+              "USD": 8,
+              "EUR": 1
+            }
+          },
+          "combine": true,
+          "reason": {
+            "en": "Your Reason",
+            "de": "Your Reason in German"
+          },
+          "limit": 10,
+          "available": {
+            "start": "2019-12-01",
+            "end": "2019-12-31"
+          },
+          "codes": [
+            "code1",
+            "code2",
+            "code3"
+          ],
+          "products": [
+            "base"
+          ]
+        }
+      },
+      "AddcouponcodestoacouponRequest": {
+        "title": "AddcouponcodestoacouponRequest",
+        "required": [
+          "codes"
+        ],
+        "type": "object",
+        "properties": {
+          "codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "codes": [
+            "code4",
+            "code5",
+            "code6"
+          ]
+        }
+      },
+      "UpdateasingleeventRequest": {
+        "title": "UpdateasingleeventRequest",
+        "required": [
+          "processed"
+        ],
+        "type": "object",
+        "properties": {
+          "processed": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "processed": true
+        }
+      },
+      "CreateneworderandcompletethechargeRequest": {
+        "title": "CreateneworderandcompletethechargeRequest",
+        "required": [
+          "account",
+          "coupon",
+          "tags",
+          "currency",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "coupon": {
+            "type": "string"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "account": "{account_id}",
+          "coupon": "",
+          "tags": {
+            "tag1": "value1"
+          },
+          "currency": "USD",
+          "items": [
+            {
+              "product": "{product_id}",
+              "quantity": 1,
+              "pricing": {
+                "trial": 0,
+                "renew": "auto",
+                "interval": "month",
+                "intervalLength": 1,
+                "quantityBehavior": "allow",
+                "quantityDefault": 1,
+                "price": {
+                  "USD": 14.95,
+                  "EUR": 10.99
+                }
+              },
+              "attributes": {
+                "ATTRIBUTE1": "value1"
+              }
+            }
+          ]
+        }
+      },
+      "Tags": {
+        "title": "Tags",
+        "required": [
+          "tag1"
+        ],
+        "type": "object",
+        "properties": {
+          "tag1": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "tag1": "value1"
+        }
+      },
+      "Item": {
+        "title": "Item",
+        "required": [
+          "product",
+          "quantity",
+          "pricing",
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/Pricing"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Attributes"
+          }
+        },
+        "example": {
+          "product": "{product_id}",
+          "quantity": 1,
+          "pricing": {
+            "trial": 0,
+            "renew": "auto",
+            "interval": "month",
+            "intervalLength": 1,
+            "quantityBehavior": "allow",
+            "quantityDefault": 1,
+            "price": {
+              "USD": 14.95,
+              "EUR": 10.99
+            }
+          },
+          "attributes": {
+            "ATTRIBUTE1": "value1"
+          }
+        }
+      },
+      "Pricing": {
+        "title": "Pricing",
+        "required": [
+          "trial",
+          "renew",
+          "interval",
+          "intervalLength",
+          "quantityBehavior",
+          "quantityDefault",
+          "price"
+        ],
+        "type": "object",
+        "properties": {
+          "trial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "renew": {
+            "type": "string"
+          },
+          "interval": {
+            "type": "string"
+          },
+          "intervalLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantityBehavior": {
+            "type": "string"
+          },
+          "quantityDefault": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          }
+        },
+        "example": {
+          "trial": 0,
+          "renew": "auto",
+          "interval": "month",
+          "intervalLength": 1,
+          "quantityBehavior": "allow",
+          "quantityDefault": 1,
+          "price": {
+            "USD": 14.95,
+            "EUR": 10.99
+          }
+        }
+      },
+      "Price": {
+        "title": "Price",
+        "required": [
+          "USD",
+          "EUR"
+        ],
+        "type": "object",
+        "properties": {
+          "USD": {
+            "type": "number"
+          },
+          "EUR": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "USD": 14.95,
+          "EUR": 10.99
+        }
+      },
+      "Attributes": {
+        "title": "Attributes",
+        "required": [
+          "ATTRIBUTE1"
+        ],
+        "type": "object",
+        "properties": {
+          "ATTRIBUTE1": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "ATTRIBUTE1": "value1"
+        }
+      },
+      "UpdateordertagsandattributesRequest": {
+        "title": "UpdateordertagsandattributesRequest",
+        "required": [
+          "orders"
+        ],
+        "type": "object",
+        "properties": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "orders": [
+            {
+              "order": "{order_id}",
+              "tags": {
+                "TagKey1": "TagValue1",
+                "TagKey2": "TagValue2"
+              },
+              "items": [
+                {
+                  "product": "product_id}",
+                  "attributes": {
+                    "AttributeKey1": "AttributeValue1",
+                    "AttributeKey2": "AttributeValue2"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Order": {
+        "title": "Order",
+        "required": [
+          "order",
+          "tags",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "string"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Tags1"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "order": "{order_id}",
+          "tags": {
+            "TagKey1": "TagValue1",
+            "TagKey2": "TagValue2"
+          },
+          "items": [
+            {
+              "product": "product_id}",
+              "attributes": {
+                "AttributeKey1": "AttributeValue1",
+                "AttributeKey2": "AttributeValue2"
+              }
+            }
+          ]
+        }
+      },
+      "Tags1": {
+        "title": "Tags1",
+        "required": [
+          "TagKey1",
+          "TagKey2"
+        ],
+        "type": "object",
+        "properties": {
+          "TagKey1": {
+            "type": "string"
+          },
+          "TagKey2": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "TagKey1": "TagValue1",
+          "TagKey2": "TagValue2"
+        }
+      },
+      "Item1": {
+        "title": "Item1",
+        "required": [
+          "product",
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Attributes1"
+          }
+        },
+        "example": {
+          "product": "product_id}",
+          "attributes": {
+            "AttributeKey1": "AttributeValue1",
+            "AttributeKey2": "AttributeValue2"
+          }
+        }
+      },
+      "Attributes1": {
+        "title": "Attributes1",
+        "required": [
+          "AttributeKey1",
+          "AttributeKey2"
+        ],
+        "type": "object",
+        "properties": {
+          "AttributeKey1": {
+            "type": "string"
+          },
+          "AttributeKey2": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "AttributeKey1": "AttributeValue1",
+          "AttributeKey2": "AttributeValue2"
+        }
+      },
+      "CreateoneormorenewproductsRequest": {
+        "title": "CreateoneormorenewproductsRequest",
+        "required": [
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "products": [
+            {
+              "product": "{product_path}",
+              "display": {
+                "en": "String"
+              },
+              "description": {
+                "summary": {
+                  "en": "String"
+                },
+                "action": {
+                  "en": "String"
+                },
+                "full": {
+                  "en": "String"
+                }
+              },
+              "fulfillment": {
+                "instructions": {
+                  "en": "String",
+                  "es": "String"
+                }
+              },
+              "image": "https://d8y8nchqlnmka.cloudfront.net/NVaGM-nhSpQ/-FooqIP-R84/photio-imac-hero.png",
+              "format": "digital",
+              "sku": "string",
+              "attributes": {
+                "key1": "value1",
+                "key2": "value2"
+              },
+              "pricing": {
+                "trial": 2,
+                "interval": "month",
+                "intervalLength": 1,
+                "quantityBehavior": "allow",
+                "quantityDefault": 1,
+                "price": {
+                  "USD": 14.95,
+                  "EUR": 10.99
+                },
+                "quantityDiscounts": {
+                  "10": 25.0
+                },
+                "discountReason": {
+                  "en": "The Reason"
+                },
+                "discountDuration": 1
+              }
+            }
+          ]
+        }
+      },
+      "Product": {
+        "title": "Product",
+        "required": [
+          "product",
+          "display",
+          "description",
+          "fulfillment",
+          "image",
+          "format",
+          "sku",
+          "attributes",
+          "pricing"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "display": {
+            "$ref": "#/components/schemas/Display"
+          },
+          "description": {
+            "$ref": "#/components/schemas/Description"
+          },
+          "fulfillment": {
+            "$ref": "#/components/schemas/Fulfillment"
+          },
+          "image": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Attributes2"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/Pricing1"
+          }
+        },
+        "example": {
+          "product": "{product_path}",
+          "display": {
+            "en": "String"
+          },
+          "description": {
+            "summary": {
+              "en": "String"
+            },
+            "action": {
+              "en": "String"
+            },
+            "full": {
+              "en": "String"
+            }
+          },
+          "fulfillment": {
+            "instructions": {
+              "en": "String",
+              "es": "String"
+            }
+          },
+          "image": "https://d8y8nchqlnmka.cloudfront.net/NVaGM-nhSpQ/-FooqIP-R84/photio-imac-hero.png",
+          "format": "digital",
+          "sku": "string",
+          "attributes": {
+            "key1": "value1",
+            "key2": "value2"
+          },
+          "pricing": {
+            "trial": 2,
+            "interval": "month",
+            "intervalLength": 1,
+            "quantityBehavior": "allow",
+            "quantityDefault": 1,
+            "price": {
+              "USD": 14.95,
+              "EUR": 10.99
+            },
+            "quantityDiscounts": {
+              "10": 25.0
+            },
+            "discountReason": {
+              "en": "The Reason"
+            },
+            "discountDuration": 1
+          }
+        }
+      },
+      "Display": {
+        "title": "Display",
+        "required": [
+          "en"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "String"
+        }
+      },
+      "Description": {
+        "title": "Description",
+        "required": [
+          "summary",
+          "action",
+          "full"
+        ],
+        "type": "object",
+        "properties": {
+          "summary": {
+            "$ref": "#/components/schemas/Summary"
+          },
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          },
+          "full": {
+            "$ref": "#/components/schemas/Full"
+          }
+        },
+        "example": {
+          "summary": {
+            "en": "String"
+          },
+          "action": {
+            "en": "String"
+          },
+          "full": {
+            "en": "String"
+          }
+        }
+      },
+      "Summary": {
+        "title": "Summary",
+        "required": [
+          "en"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "String"
+        }
+      },
+      "Action": {
+        "title": "Action",
+        "required": [
+          "en"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "String"
+        }
+      },
+      "Full": {
+        "title": "Full",
+        "required": [
+          "en"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "String"
+        }
+      },
+      "Fulfillment": {
+        "title": "Fulfillment",
+        "required": [
+          "instructions"
+        ],
+        "type": "object",
+        "properties": {
+          "instructions": {
+            "$ref": "#/components/schemas/Instructions"
+          }
+        },
+        "example": {
+          "instructions": {
+            "en": "String",
+            "es": "String"
+          }
+        }
+      },
+      "Instructions": {
+        "title": "Instructions",
+        "required": [
+          "en",
+          "es"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "es": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "String",
+          "es": "String"
+        }
+      },
+      "Attributes2": {
+        "title": "Attributes2",
+        "required": [
+          "key1",
+          "key2"
+        ],
+        "type": "object",
+        "properties": {
+          "key1": {
+            "type": "string"
+          },
+          "key2": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "key1": "value1",
+          "key2": "value2"
+        }
+      },
+      "Pricing1": {
+        "title": "Pricing1",
+        "required": [
+          "trial",
+          "interval",
+          "intervalLength",
+          "quantityBehavior",
+          "quantityDefault",
+          "price",
+          "quantityDiscounts",
+          "discountReason",
+          "discountDuration"
+        ],
+        "type": "object",
+        "properties": {
+          "trial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "interval": {
+            "type": "string"
+          },
+          "intervalLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantityBehavior": {
+            "type": "string"
+          },
+          "quantityDefault": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "quantityDiscounts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "discountReason": {
+            "$ref": "#/components/schemas/DiscountReason"
+          },
+          "discountDuration": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "trial": 2,
+          "interval": "month",
+          "intervalLength": 1,
+          "quantityBehavior": "allow",
+          "quantityDefault": 1,
+          "price": {
+            "USD": 14.95,
+            "EUR": 10.99
+          },
+          "quantityDiscounts": {
+            "10": 25.0
+          },
+          "discountReason": {
+            "en": "The Reason"
+          },
+          "discountDuration": 1
+        }
+      },
+      "DiscountReason": {
+        "title": "DiscountReason",
+        "required": [
+          "en"
+        ],
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "en": "The Reason"
+        }
+      },
+      "UpdateoneormoreexistingproductsRequest": {
+        "title": "UpdateoneormoreexistingproductsRequest",
+        "required": [
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "products": [
+            {
+              "product": "{product_path}",
+              "display": {
+                "en": "String"
+              },
+              "description": {
+                "summary": {
+                  "en": "String"
+                },
+                "action": {
+                  "en": "String"
+                },
+                "full": {
+                  "en": "String"
+                }
+              },
+              "fulfillment": {
+                "instructions": {
+                  "en": "String",
+                  "es": "String"
+                }
+              },
+              "image": "https://d8y8nchqlnmka.cloudfront.net/NVaGM-nhSpQ/-FooqIP-R84/photio-imac-hero.png",
+              "format": "digital",
+              "sku": "string",
+              "attributes": {
+                "key1": "value1",
+                "key2": "value2"
+              },
+              "pricing": {
+                "trial": 2,
+                "interval": "month",
+                "intervalLength": 1,
+                "quantityBehavior": "allow",
+                "quantityDefault": 1,
+                "price": {
+                  "USD": 14.95,
+                  "EUR": 10.99
+                },
+                "quantityDiscounts": {
+                  "10": 25.0
+                },
+                "discountReason": {
+                  "en": "The Reason"
+                },
+                "discountDuration": 1
+              }
+            }
+          ]
+        }
+      },
+      "CreateasessionwithoutoverridinganydefaultvaluesRequest": {
+        "title": "CreateasessionwithoutoverridinganydefaultvaluesRequest",
+        "required": [
+          "account",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item2"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "account": "{account_id}",
+          "items": [
+            {
+              "product": "{product_path}",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      "Item2": {
+        "title": "Item2",
+        "required": [
+          "product",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "product": "{product_path}",
+          "quantity": 1
+        }
+      },
+      "CreateasessionoverridingaproductsdefaultpricingRequest": {
+        "title": "CreateasessionoverridingaproductsdefaultpricingRequest",
+        "required": [
+          "account",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item3"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "account": "{account_id}",
+          "items": [
+            {
+              "product": "{product_path}",
+              "quantity": 1,
+              "pricing": {
+                "price": {
+                  "USD": 10.0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Item3": {
+        "title": "Item3",
+        "required": [
+          "product",
+          "quantity",
+          "pricing"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/Pricing3"
+          }
+        },
+        "example": {
+          "product": "{product_path}",
+          "quantity": 1,
+          "pricing": {
+            "price": {
+              "USD": 10.0
+            }
+          }
+        }
+      },
+      "Pricing3": {
+        "title": "Pricing3",
+        "required": [
+          "price"
+        ],
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/Price3"
+          }
+        },
+        "example": {
+          "price": {
+            "USD": 10.0
+          }
+        }
+      },
+      "Price3": {
+        "title": "Price3",
+        "required": [
+          "USD"
+        ],
+        "type": "object",
+        "properties": {
+          "USD": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "USD": 10.0
+        }
+      },
+      "CreateasessionapplyingacoupontoanorderRequest": {
+        "title": "CreateasessionapplyingacoupontoanorderRequest",
+        "required": [
+          "account",
+          "items",
+          "coupon"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item2"
+            },
+            "description": ""
+          },
+          "coupon": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "account": "{account_id}",
+          "items": [
+            {
+              "product": "{product_path}",
+              "quantity": 1
+            }
+          ],
+          "coupon": "free"
+        }
+      },
+      "ChangetheproductforanactivesubscriptionRequest": {
+        "title": "ChangetheproductforanactivesubscriptionRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "product": "{subscription_product_path}",
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      "Subscription": {
+        "title": "Subscription",
+        "required": [
+          "subscription",
+          "product",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "product": "{subscription_product_path}",
+          "quantity": 1
+        }
+      },
+      "Changethedate,quantityorcouponforanactivesubscriptionRequest": {
+        "title": "Changethedate,quantityorcouponforanactivesubscriptionRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "next": "2019-01-30",
+              "end": 0,
+              "quantity": 2,
+              "coupons": [
+                "{coupon_id}"
+              ]
+            }
+          ]
+        }
+      },
+      "Subscription1": {
+        "title": "Subscription1",
+        "required": [
+          "subscription",
+          "next",
+          "end",
+          "quantity",
+          "coupons"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          },
+          "end": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "coupons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "next": "2019-01-30",
+          "end": 0,
+          "quantity": 2,
+          "coupons": [
+            "{coupon_id}"
+          ]
+        }
+      },
+      "ChangingthepriceordiscountforanactivesubscriptionRequest": {
+        "title": "ChangingthepriceordiscountforanactivesubscriptionRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription2"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "pricing": {
+                "price": {
+                  "USD": 10
+                },
+                "discount": {
+                  "type": "amount",
+                  "amount": {
+                    "USD": 5
+                  },
+                  "duration": "all"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Subscription2": {
+        "title": "Subscription2",
+        "required": [
+          "subscription",
+          "pricing"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/Pricing4"
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "pricing": {
+            "price": {
+              "USD": 10
+            },
+            "discount": {
+              "type": "amount",
+              "amount": {
+                "USD": 5
+              },
+              "duration": "all"
+            }
+          }
+        }
+      },
+      "Pricing4": {
+        "title": "Pricing4",
+        "required": [
+          "price",
+          "discount"
+        ],
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/Price4"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount2"
+          }
+        },
+        "example": {
+          "price": {
+            "USD": 10
+          },
+          "discount": {
+            "type": "amount",
+            "amount": {
+              "USD": 5
+            },
+            "duration": "all"
+          }
+        }
+      },
+      "Price4": {
+        "title": "Price4",
+        "required": [
+          "USD"
+        ],
+        "type": "object",
+        "properties": {
+          "USD": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "USD": 10
+        }
+      },
+      "Discount2": {
+        "title": "Discount2",
+        "required": [
+          "type",
+          "amount",
+          "duration"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Amount2"
+          },
+          "duration": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "amount",
+          "amount": {
+            "USD": 5
+          },
+          "duration": "all"
+        }
+      },
+      "Amount2": {
+        "title": "Amount2",
+        "required": [
+          "USD"
+        ],
+        "type": "object",
+        "properties": {
+          "USD": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "USD": 5
+        }
+      },
+      "AddingoreditingasubscriptionaddontoanactivesubscriptionRequest": {
+        "title": "AddingoreditingasubscriptionaddontoanactivesubscriptionRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription3"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "addons": [
+                {
+                  "product": "{subscription_addon_path}",
+                  "quantity": 2,
+                  "pricing": {
+                    "price": {
+                      "USD": 10
+                    },
+                    "discount": {
+                      "type": "percent",
+                      "percentage": 10,
+                      "duration": 2
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Subscription3": {
+        "title": "Subscription3",
+        "required": [
+          "subscription",
+          "addons"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "addons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Addon"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "addons": [
+            {
+              "product": "{subscription_addon_path}",
+              "quantity": 2,
+              "pricing": {
+                "price": {
+                  "USD": 10
+                },
+                "discount": {
+                  "type": "percent",
+                  "percentage": 10,
+                  "duration": 2
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Addon": {
+        "title": "Addon",
+        "required": [
+          "product",
+          "quantity",
+          "pricing"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/Pricing5"
+          }
+        },
+        "example": {
+          "product": "{subscription_addon_path}",
+          "quantity": 2,
+          "pricing": {
+            "price": {
+              "USD": 10
+            },
+            "discount": {
+              "type": "percent",
+              "percentage": 10,
+              "duration": 2
+            }
+          }
+        }
+      },
+      "Pricing5": {
+        "title": "Pricing5",
+        "required": [
+          "price",
+          "discount"
+        ],
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/Price4"
+          },
+          "discount": {
+            "$ref": "#/components/schemas/Discount3"
+          }
+        },
+        "example": {
+          "price": {
+            "USD": 10
+          },
+          "discount": {
+            "type": "percent",
+            "percentage": 10,
+            "duration": 2
+          }
+        }
+      },
+      "Discount3": {
+        "title": "Discount3",
+        "required": [
+          "type",
+          "percentage",
+          "duration"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "percentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duration": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "type": "percent",
+          "percentage": 10,
+          "duration": 2
+        }
+      },
+      "RemoveasubscriptionaddonfromanactivesubscriptionRequest": {
+        "title": "RemoveasubscriptionaddonfromanactivesubscriptionRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription4"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "addons": [
+                {
+                  "product": "{subscription_addon_path}",
+                  "quantity": 0
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Subscription4": {
+        "title": "Subscription4",
+        "required": [
+          "subscription",
+          "addons"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "addons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Addon1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "addons": [
+            {
+              "product": "{subscription_addon_path}",
+              "quantity": 0
+            }
+          ]
+        }
+      },
+      "Addon1": {
+        "title": "Addon1",
+        "required": [
+          "product",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "product": "{subscription_addon_path}",
+          "quantity": 0
+        }
+      },
+      "ChangeasubscriptionfromautomaticrenewaltomanualRequest": {
+        "title": "ChangeasubscriptionfromautomaticrenewaltomanualRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription5"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "manualRenew": "true"
+            }
+          ]
+        }
+      },
+      "Subscription5": {
+        "title": "Subscription5",
+        "required": [
+          "subscription",
+          "manualRenew"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "manualRenew": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "manualRenew": "true"
+        }
+      },
+      "UncancelasubscriptionpriortodeactivationRequest": {
+        "title": "UncancelasubscriptionpriortodeactivationRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription6"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}",
+              "deactivation": null
+            }
+          ]
+        }
+      },
+      "Subscription6": {
+        "title": "Subscription6",
+        "required": [
+          "subscription",
+          "deactivation"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          },
+          "deactivation": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}",
+          "deactivation": null
+        }
+      },
+      "RebillmanagedsubscriptioninstanceRequest": {
+        "title": "RebillmanagedsubscriptioninstanceRequest",
+        "required": [
+          "subscriptions"
+        ],
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription7"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "subscriptions": [
+            {
+              "subscription": "{subscription_id}"
+            }
+          ]
+        }
+      },
+      "Subscription7": {
+        "title": "Subscription7",
+        "required": [
+          "subscription"
+        ],
+        "type": "object",
+        "properties": {
+          "subscription": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "subscription": "{subscription_id}"
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBasic": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Coupons"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Orders"
+    },
+    {
+      "name": "Products"
+    },
+    {
+      "name": "Returns"
+    },
+    {
+      "name": "Sessions"
+    },
+    {
+      "name": "Subscriptions"
+    }
+  ]
+}
