@@ -1,0 +1,71 @@
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Regular Italic"),local("ProximaNovaRegularItalic"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaRegularItalic.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaRegularItalic.woff) format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Bold"),local("ProximaNovaBold"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaBold.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaBold.woff) format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Extra Bold"),local("ProximaNovaExtraBold"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaExtraBold.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaExtraBold.woff) format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Bold Italic"),local("ProximaNovaBoldItalic"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaBoldItalic.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaBoldItalic.woff) format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Medium"),local("ProximaNovaMedium"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaMedium.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaMedium.woff) format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Semibold"),local("ProximaNovaSemibold"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaSemibold.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaSemibold.woff) format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Light"),local("ProximaNovaLight"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaLight.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaLight.woff) format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Light Italic"),local("ProximaNovaLightItalic"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaLightItalic.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaLightItalic.woff) format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: local("Proxima Nova Regular"),local("ProximaNovaRegular"),url(https://m6u8p7c2.rocketcdn.me/wp/wp-content/themes/shared_assets/fonts/ProximaNovaRegular.woff2) format("woff2"),url(/wp/wp-content/themes/shared_assets/fonts/ProximaNovaRegular.woff) format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
